@@ -84,11 +84,18 @@ curl -d "📊 BTC/ETH Daily [DATE] | BTC: $[PRICE] ([CHANGE]%) | ETH: $[PRICE] (
   https://ntfy.sh/crypto-daily-kma9f
 ```
 
+Also include the Google Drive view URL in the ntfy Click and Actions headers so the notification links directly to the report.
+
+Also save the report to Google Drive using the Google Drive MCP:
+- Title: `📊 BTC/ETH Daily Report — YYYY-MM-DD`
+- Parent folder ID: `1zHhZ19pRyuunHunyEDVU8Lm5xhjypWW8` (Daily Crypto Reports)
+
 If ntfy.sh is unavailable, append a one-line summary to `notifications.log` in the same directory as this AGENTS.md:
 Format: [DATETIME] BTC: $X (X%) | ETH: $X (X%) | Report: daily_crypto_report_YYYY-MM-DD.md
 
 Configuration Notes:
 ntfy.sh topic: crypto-daily-kma9f
+Google Drive folder: Daily Crypto Reports (ID: 1zHhZ19pRyuunHunyEDVU8Lm5xhjypWW8)
 Language: Bilingual English + Chinese (中英双语)
 
 

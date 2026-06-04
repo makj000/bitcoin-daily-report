@@ -12,7 +12,8 @@ Run daily in the morning, cron: 0 6 * * *  # 6am Pacific Time (America/Los_Angel
 Search for the current prices of BTC and ETH and their prices ~24 hours ago. Calculate the 24h change ($ and %) for each. Also fetch:
  - Crypto Fear & Greed Index
  - BTC and ETH 24h trading volume
- - BTC dominance %
+ - BTC dominance % and ETH dominance %
+ - BTC and ETH 7-day price trend (%)
 
 Replace `[DATE]` with today's date (YYYY-MM-DD) and `[DATE-1]` with yesterday's date in all search queries below.
 
@@ -48,15 +49,17 @@ Format the report as follows (bilingual English + Chinese throughout):
 ## 💰 Price Summary / 价格摘要
 [Pivoted table with metrics as rows, tickers as columns:]
 
-| Metric         | BTC              | ETH              |
-|----------------|------------------|------------------|
-| Price          | $X               | $X               |
-| 24h Change     | +/-$X (+/-X%) 🟢/🔴 | +/-$X (+/-X%) 🟢/🔴 |
-| 24h Volume     | ~$XB             | ~$XB             |
-| vs Yesterday   | $X → $X          | $X → $X          |
-| Notes          | ...              | ...              |
+| Metric         | BTC                      | ETH                      |
+|----------------|--------------------------|--------------------------|
+| Price          | $X                       | $X                       |
+| Yesterday      | $X                       | $X                       |
+| 24h Change     | +/-$X (+/-X%) 🟢/🔴      | +/-$X (+/-X%) 🟢/🔴      |
+| 7d Trend       | +/-X% 🟢/🔴              | +/-X% 🟢/🔴              |
+| 24h Volume     | ~$XB                     | ~$XB                     |
+| Dominance      | X%                       | X%                       |
+| Notes          | ...                      | ...                      |
 
-BTC Dominance: X% | Fear & Greed: X (label) | Total Market Cap: $X
+Total Market Cap: $X | Fear & Greed: X (label)
 ## ₿ Bitcoin — Top News / 比特币头条
 [3-5 stories, each with: headline, 1-2 sentence summary in English, 1-2 sentence summary in Chinese, Sentiment emoji (🟢 bullish / 🟡 neutral / 🔴 bearish), estimated impact (High/Medium/Low)]
 ## Ξ Ethereum — Top News / 以太坊头条

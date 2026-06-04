@@ -46,11 +46,17 @@ Format the report as follows (bilingual English + Chinese throughout):
 # 📊 Daily Crypto Report — [DATE]
 # 每日加密货币报告 — [DATE]
 ## 💰 Price Summary / 价格摘要
-[Table: Asset | Price | 24h Change | 24h Volume | Notes]
-- BTC: $X (+/-X%)
-- ETH: $X (+/-X%)
-- BTC Dominance: X%
-- Fear & Greed: X (label)
+[Pivoted table with metrics as rows, tickers as columns:]
+
+| Metric         | BTC              | ETH              |
+|----------------|------------------|------------------|
+| Price          | $X               | $X               |
+| 24h Change     | +/-$X (+/-X%) 🟢/🔴 | +/-$X (+/-X%) 🟢/🔴 |
+| 24h Volume     | ~$XB             | ~$XB             |
+| vs Yesterday   | $X → $X          | $X → $X          |
+| Notes          | ...              | ...              |
+
+BTC Dominance: X% | Fear & Greed: X (label) | Total Market Cap: $X
 ## ₿ Bitcoin — Top News / 比特币头条
 [3-5 stories, each with: headline, 1-2 sentence summary in English, 1-2 sentence summary in Chinese, Sentiment emoji (🟢 bullish / 🟡 neutral / 🔴 bearish), estimated impact (High/Medium/Low)]
 ## Ξ Ethereum — Top News / 以太坊头条

@@ -65,7 +65,8 @@ Total Market Cap: $X | Fear & Greed: X (label)
 ## Ξ Ethereum — Top News / 以太坊头条
 [3-5 stories, same format as BTC]
 ## 🔗 News-to-Price Correlation / 新闻与价格走势关联
-[Table: News Item | Sentiment | Impact | Explanation]
+[Use a compact list format, one entry per line — no wide table. Format each item as:]
+🔴/🟡/🟢 **High/Med/Low** — News headline → one-sentence explanation of price impact
 ## 📋 Overall Assessment / 综合评估
 [2-3 paragraph bilingual summary. Explain whether price moves are well-explained by news, note any unexplained factors (liquidations, thin liquidity, technical levels). Call out key support/resistance levels for BTC and ETH.]
 

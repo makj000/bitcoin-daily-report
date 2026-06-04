@@ -1,0 +1,7 @@
+# Generated reports
+daily_crypto_report_*.md
+bitcoin_daily_report_*.md
+bitcoin-daily-report-*.md
+
+# Claude local memory
+.claude/

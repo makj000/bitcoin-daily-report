@@ -61,7 +61,8 @@ Format the report as follows (bilingual English + Chinese throughout):
 [2-3 paragraph bilingual summary. Explain whether price moves are well-explained by news, note any unexplained factors (liquidations, thin liquidity, technical levels). Call out key support/resistance levels for BTC and ETH.]
 
 ## Step 4: Save Report
-Save the full report as a markdown file in the same directory as this AGENTS.md file: `daily_crypto_report_YYYY-MM-DD.md`
+Save the full report as a markdown file in the working directory: `daily_crypto_report_YYYY-MM-DD.md`
+Do NOT commit this file to git — it is intentionally gitignored.
 
 ## Step 5: Send Notification
 Send a push notification via ntfy.sh:

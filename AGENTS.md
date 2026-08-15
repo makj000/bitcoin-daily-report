@@ -3,7 +3,7 @@ Daily BTC + ETH Market Report
 # Task
 You are running an automated daily crypto market report. Execute all steps autonomously without asking questions.
 
-Search for the latest Bitcoin (BTC) and Ethereum (ETH) market news from the past 24 hours, produce a bilingual (English + Chinese) report, save it to disk, and send it via email.
+Search for the latest Bitcoin (BTC) and Ethereum (ETH) market news from the past 24 hours, produce a bilingual (English + Chinese) report, save it to disk, save it to Google Drive, and send a Telegram notification.
 
 # Schedule
 Run daily in the morning, cron: 0 6 * * *  # 6am Pacific Time (America/Los_Angeles)
@@ -43,7 +43,19 @@ Use multiple searches (substitute actual dates for `[DATE]`), e.g.:
  - "Ethereum staking DeFi [DATE]"
 
 ## Step 3: Write the Report
-Format the report as follows (bilingual English + Chinese throughout):
+Write a complete, standalone HTML5 document with responsive embedded CSS. Keep the report bilingual English + Chinese throughout.
+
+Include these metadata elements in `<head>` using the final displayed values:
+
+```html
+<meta name="btc-price" content="$X">
+<meta name="btc-change" content="+/-X%">
+<meta name="eth-price" content="$X">
+<meta name="eth-change" content="+/-X%">
+<meta name="fear-greed" content="X">
+```
+
+Format the visible report as follows:
 # 📊 Daily Crypto Report — [DATE]
 # 每日加密货币报告 — [DATE]
 ## 💰 Price Summary / 价格摘要
@@ -71,31 +83,31 @@ Total Market Cap: $X | Fear & Greed: X (label)
 [2-3 paragraph bilingual summary. Explain whether price moves are well-explained by news, note any unexplained factors (liquidations, thin liquidity, technical levels). Call out key support/resistance levels for BTC and ETH.]
 
 ## Step 4: Save Report
-Save the full report as a markdown file in the working directory: `daily_crypto_report_YYYY-MM-DD.md`
+Save the full report as a standalone HTML file in the `reports` subfolder:
+`reports/daily_crypto_report_YYYY-MM-DD.html`
 Do NOT commit this file to git — it is intentionally gitignored.
 
-## Step 5: Send Notification
-Send a push notification via ntfy.sh:
-
-```
-curl -d "📊 BTC/ETH Daily [DATE] | BTC: $[PRICE] ([CHANGE]%) | ETH: $[PRICE] ([CHANGE]%) | F&G: [FNG] | Report saved to Google Drive" \
-  -H "Title: Daily Crypto Report" \
-  -H "Priority: default" \
-  https://ntfy.sh/crypto-daily-kma9f
-```
-
-Also include the Google Drive view URL in the ntfy Click and Actions headers so the notification links directly to the report.
-
-Also save the report to Google Drive using the Google Drive MCP:
+## Step 5: Save to Google Drive and Send Telegram Notification
+Save the report to Google Drive using the Google Drive MCP:
 - Title: `📊 BTC/ETH Daily Report — YYYY-MM-DD`
-- Parent folder ID: `1zHhZ19pRyuunHunyEDVU8Lm5xhjypWW8` (Daily Crypto Reports)
+- Parent folder: `Daily Crypto Reports/HTML Reports`
 
-If ntfy.sh is unavailable, append a one-line summary to `notifications.log` in the same directory as this AGENTS.md:
-Format: [DATETIME] BTC: $X (X%) | ETH: $X (X%) | Report: daily_crypto_report_YYYY-MM-DD.md
+Send a Telegram message with this content:
+
+```
+📊 BTC/ETH Daily [DATE] | BTC: $[PRICE] ([CHANGE]%) | ETH: $[PRICE] ([CHANGE]%) | F&G: [FNG] | Report saved to Google Drive
+[GOOGLE_DRIVE_VIEW_URL]
+```
+
+Use `CRYPTO_TELEGRAM_BOT_TOKEN` from the project `.env`. Use the global chat ID from `$HOME/.config/kma/telegram.env` (`KMA_TELEGRAM_CHAT_ID`) by default. Only use `CRYPTO_TELEGRAM_CHAT_ID` from the project `.env` when the project explicitly needs a different chat.
+
+If Telegram is unavailable, append a one-line summary to `notifications.log` in the same directory as this AGENTS.md:
+Format: [DATETIME] BTC: $X (X%) | ETH: $X (X%) | Report: reports/daily_crypto_report_YYYY-MM-DD.html
 
 Configuration Notes:
-ntfy.sh topic: crypto-daily-kma9f
-Google Drive folder: Daily Crypto Reports (ID: 1zHhZ19pRyuunHunyEDVU8Lm5xhjypWW8)
+Telegram bot token: `CRYPTO_TELEGRAM_BOT_TOKEN`
+Telegram chat ID fallback: `$HOME/.config/kma/telegram.env` (`KMA_TELEGRAM_CHAT_ID`)
+Google Drive folder: Daily Crypto Reports/HTML Reports
 Language: Bilingual English + Chinese (中英双语)
 
 

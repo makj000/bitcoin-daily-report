@@ -103,6 +103,7 @@ Use `CRYPTO_TELEGRAM_BOT_TOKEN` from the project `.env`. Use the global chat ID 
 
 If Telegram is unavailable, append a one-line summary to `notifications.log` in the same directory as this AGENTS.md:
 Format: [DATETIME] BTC: $X (X%) | ETH: $X (X%) | Report: reports/daily_crypto_report_YYYY-MM-DD.html
+Do NOT commit or push `notifications.log`, or any other file, to git — it is intentionally gitignored, same as the report itself.
 
 Configuration Notes:
 Telegram bot token: `CRYPTO_TELEGRAM_BOT_TOKEN`

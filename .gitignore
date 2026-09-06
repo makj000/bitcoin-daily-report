@@ -5,6 +5,7 @@ logs/
 .daily-report.lock/
 bitcoin_daily_report_*.md
 bitcoin-daily-report-*.md
+notifications.log
 
 # Claude local memory
 .claude/

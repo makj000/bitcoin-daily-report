@@ -1,7 +1,11 @@
 # Generated reports
 daily_crypto_report_*.md
+reports/
+logs/
+.daily-report.lock/
 bitcoin_daily_report_*.md
 bitcoin-daily-report-*.md
 
 # Claude local memory
 .claude/
+.env

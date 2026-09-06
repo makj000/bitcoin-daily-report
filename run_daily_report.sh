@@ -6,7 +6,6 @@ CODEX="/Users/kma/.local/bin/codex"
 LOG_DIR="$PROJECT_DIR/logs"
 REPORT_DIR="$PROJECT_DIR/reports"
 LOCK_DIR="$PROJECT_DIR/.daily-report.lock"
-DRIVE_DIR="/Users/kma/Library/CloudStorage/GoogleDrive-kejia.ma@gmail.com/My Drive/Daily Crypto Reports/HTML Reports"
 
 export HOME="/Users/kma"
 export PATH="/Users/kma/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -20,6 +19,11 @@ if [[ -f "$PROJECT_DIR/.env" ]]; then
   set -a
   source "$PROJECT_DIR/.env"
   set +a
+fi
+
+if [[ -z "${DRIVE_DIR:-}" ]]; then
+  print "DRIVE_DIR not set — configure it in .env (see .env.example)"
+  exit 1
 fi
 
 send_telegram() {
